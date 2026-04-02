@@ -1,111 +1,127 @@
-🐘 Apprentissage du PHP (Debian)
+# 🐘 Mes Premiers Pas en PHP (Debian 13)
 
-Ce dépôt regroupe mes premiers pas en PHP, réalisés dans un environnement Debian 12.
-Il contient des exercices pratiques, des tests et des bases essentielles pour maîtriser progressivement le langage.
-
----
-
-🎯 Objectifs
-
-- Comprendre la syntaxe de base du PHP
-- Manipuler les variables, conditions et boucles
-- Tester des scripts en local
-- Se familiariser avec l’environnement Linux (Debian)
+Ce dépôt regroupe mes **premiers exercices PHP** sur **Debian 13**.  
+Du "Hello World" aux fonctions avancées, avec tests pratiques et environnement web local.
 
 ---
 
-⚙️ Installation & Configuration
+## 🎯 Objectifs d'Apprentissage
 
-🔹 1. Prérequis
+- ✅ Syntaxe PHP de base (variables, échos)
+- ✅ Conditions if/else, switch
+- ✅ Boucles for/while/foreach
+- ✅ Fonctions et tableaux
+- ✅ Serveur web local Debian
 
-Assurez-vous que PHP est installé sur votre machine :
+---
 
+## ⚙️ Installation & Environnement
+
+### 🔹 1. PHP sur Debian 13
+
+```bash
 sudo apt update
-sudo apt install php-cli php-common
+sudo apt install php-cli php-common apache2 libapache2-mod-php php-mysql
+```
 
-Vérifiez ensuite l'installation :
-
+**Vérification :**
+```bash
 php -v
+sudo systemctl status apache2
+```
 
 ---
 
-📂 2. Emplacement du projet
+### 📂 2. Dossier Projet
 
-Le projet est stocké dans le répertoire serveur web :
-
-/var/www/html/langage_php
-
----
-
-🔐 3. Permissions
-
-Pour éviter d'utiliser "sudo" à chaque modification :
-
-sudo chown -R $USER:$USER /var/www/html/langage_php
+```bash
+sudo mkdir -p /var/www/html/php_debutant
+sudo chown -R $USER:$USER /var/www/html/php_debutant
+cd /var/www/html/php_debutant
+```
 
 ---
 
-🚀 Exécution des scripts
+### 🔐 3. Permissions Web
 
-Deux méthodes sont disponibles selon votre besoin :
-
----
-
-🌐 Option A : Serveur de développement (Recommandé)
-
-Lancez le serveur local :
-
-php -S localhost:8000
-
-Puis ouvrez votre navigateur à l'adresse :
-
-http://localhost:8000/nom_du_fichier.php
-
-✔️ Idéal pour simuler un environnement web réel.
+```bash
+sudo a2enmod php8.2  # ou ta version PHP
+sudo systemctl restart apache2
+```
 
 ---
 
-🖥️ Option B : Ligne de commande (CLI)
+## 🚀 Test de tes Scripts
 
-Exécutez directement un fichier :
+### 🌐 **Option A : Navigateur Web (Recommandé)**
 
-php nom_du_fichier.php
+1. Crée ton fichier : `nano index.php`
+2. Ouvre : `http://localhost/php_debutant/index.php`
 
-✔️ Rapide pour tester un script simple.
-
----
-
-📁 Structure du projet (exemple)
-
-langage_php/
-├── index.php
-├── variables.php
-├── conditions.php
-├── boucles.php
-└── fonctions.php
+**✔️ Parfait pour forms, $_GET/$_POST**
 
 ---
 
-💡 Conseils
+### 🖥️ **Option B : Ligne de Commande**
 
-- Teste chaque fichier individuellement
-- Lis les erreurs affichées, elles t’apprennent plus que le code lui-même
-- Garde ton code propre et commenté
-- Expérimente 🔬 : casse des choses, corrige-les
+```bash
+php mon_script.php
+```
 
----
-
-🧠 Évolution
-
-Ce dépôt évoluera avec :
-
-- Des exercices plus avancés
-- Des mini-projets
-- Une introduction aux bases de données (MySQL)
+**✔️ Idéal pour debug rapide**
 
 ---
 
-❤️ Crédit
+## 📁 Structure du Projet
 
-Fait avec rigueur sur Debian 12
-Progression étape par étape, sans raccourci.
+```
+php_debutant/
+├── index.php          # Accueil + menu
+├── variables.php      # Strings, ints, arrays
+├── conditions.php     # if/else, switch
+├── boucles.php        # for, while, foreach
+├── fonctions.php      # Définition + appels
+├── forms.php          # $_POST + validation
+└── mysql_test.php     # Connexion DB (bonus)
+```
+
+---
+
+## 💡 Conseils du Débutant
+
+```
+🔥 Tips pratiques :
+• var_dump($ma_variable) = ton meilleur ami
+• error_reporting(E_ALL); en haut de chaque fichier
+• Teste TOUT en localhost:80 d'abord
+• Commente ton code = futur toi te remercie
+• Erreurs PHP = profs gratuits 📚
+```
+
+---
+
+## 🧠 Prochaines Étapes
+
+```
+Niveau 1 ✅ : Bases syntaxe
+Niveau 2 🔄 : Forms + Sessions  
+Niveau 3 🎯 : MySQL + PDO
+Niveau 4 🥇 : API REST simples
+Niveau 5 💎 : MVC basique
+```
+
+---
+
+## ❤️ Mon Setup
+
+**Débutant PHP sur Debian 13**  
+*Apprentissage progressif, sans rush*  
+`3+ fichier par jour = maîtrise en 1 mois`
+
+---
+
+<div align="center">
+<img src="https://img.shields.io/badge/PHP-Debutant%20Level%201-green?style=for-the-badge&logo=php">
+<img src="https://img.shields.io/badge/Debian-13-blue?style=for-the-badge&logo=debian">
+</div>
+
